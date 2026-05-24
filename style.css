@@ -1,19 +1,33 @@
-/* ===== CSS variables (themes) ===== */
+/* ===== CSS variables (Coolors palette) =====
+   #e6c79c · sand
+   #cddfa0 · sage
+   #6fd08c · green
+   #7b9ea8 · teal
+   #78586f · mauve
+   https://coolors.co/e6c79c-cddfa0-6fd08c-7b9ea8-78586f
+*/
 :root {
   color-scheme: dark;
-  --bg: #0f172a;
-  --bg-elevated: #1e293b;
-  --text: #f8fafc;
-  --text-muted: #94a3b8;
-  --accent: #38bdf8;
-  --accent-soft: rgba(56, 189, 248, 0.15);
-  --border: rgba(248, 250, 252, 0.12);
-  --shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
-  --header-bg: rgba(15, 23, 42, 0.72);
-  --thumb-1: linear-gradient(135deg, #0ea5e9 0%, #6366f1 100%);
-  --thumb-2: linear-gradient(135deg, #22d3ee 0%, #38bdf8 50%, #818cf8 100%);
-  --thumb-3: linear-gradient(135deg, #f472b6 0%, #a78bfa 100%);
-  --radius: 12px;
+  --sand: #e6c79c;
+  --sage: #cddfa0;
+  --green: #6fd08c;
+  --teal: #7b9ea8;
+  --mauve: #78586f;
+  --bg: #2a2230;
+  --bg-elevated: #352c3c;
+  --text: #f5f0ea;
+  --text-muted: #b8b0b4;
+  --accent: var(--green);
+  --accent-secondary: var(--teal);
+  --accent-soft: rgba(111, 208, 140, 0.18);
+  --accent-soft-sand: rgba(230, 199, 156, 0.14);
+  --border: rgba(230, 199, 156, 0.14);
+  --shadow: 0 24px 48px rgba(0, 0, 0, 0.4);
+  --header-bg: rgba(42, 34, 48, 0.85);
+  --thumb-1: linear-gradient(135deg, var(--mauve) 0%, var(--teal) 100%);
+  --thumb-2: linear-gradient(135deg, var(--teal) 0%, var(--green) 55%, var(--sage) 100%);
+  --thumb-3: linear-gradient(135deg, var(--sand) 0%, var(--sage) 50%, var(--green) 100%);
+  --radius: 14px;
   --radius-sm: 8px;
   --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
     Arial, sans-serif;
@@ -23,18 +37,20 @@
 
 html[data-theme="light"] {
   color-scheme: light;
-  --bg: #f1f5f9;
+  --bg: #faf6f0;
   --bg-elevated: #ffffff;
-  --text: #0f172a;
-  --text-muted: #64748b;
-  --accent: #0284c7;
-  --accent-soft: rgba(2, 132, 199, 0.12);
-  --border: rgba(15, 23, 42, 0.1);
-  --shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
-  --header-bg: rgba(241, 245, 249, 0.82);
-  --thumb-1: linear-gradient(135deg, #0369a1 0%, #4f46e5 100%);
-  --thumb-2: linear-gradient(135deg, #0891b2 0%, #0284c7 50%, #6366f1 100%);
-  --thumb-3: linear-gradient(135deg, #db2777 0%, #7c3aed 100%);
+  --text: #3d2f38;
+  --text-muted: #6b5d66;
+  --accent: #4a9e6a;
+  --accent-secondary: #5a8a96;
+  --accent-soft: rgba(111, 208, 140, 0.22);
+  --accent-soft-sand: rgba(230, 199, 156, 0.35);
+  --border: rgba(120, 88, 111, 0.14);
+  --shadow: 0 20px 40px rgba(120, 88, 111, 0.1);
+  --header-bg: rgba(250, 246, 240, 0.88);
+  --thumb-1: linear-gradient(135deg, #78586f 0%, #7b9ea8 100%);
+  --thumb-2: linear-gradient(135deg, #7b9ea8 0%, #6fd08c 55%, #cddfa0 100%);
+  --thumb-3: linear-gradient(135deg, #e6c79c 0%, #cddfa0 50%, #6fd08c 100%);
 }
 
 /* ===== Reset & base ===== */
@@ -77,6 +93,9 @@ body {
   line-height: 1.6;
   color: var(--text);
   background-color: var(--bg);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 10% -10%, var(--accent-soft-sand), transparent 50%),
+    radial-gradient(ellipse 60% 40% at 90% 100%, rgba(123, 158, 168, 0.12), transparent 50%);
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
 }
@@ -282,9 +301,12 @@ button {
   height: 1.1rem;
   border-radius: 50%;
   background: conic-gradient(
-    var(--accent) 0deg,
-    var(--text-muted) 180deg,
-    var(--bg-elevated) 360deg
+    var(--green) 0deg,
+    var(--sage) 72deg,
+    var(--sand) 144deg,
+    var(--teal) 216deg,
+    var(--mauve) 288deg,
+    var(--green) 360deg
   );
   box-shadow: inset 0 0 0 2px var(--bg);
 }
@@ -356,7 +378,7 @@ button {
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--sand);
   margin-bottom: 1rem;
 }
 
@@ -380,16 +402,17 @@ button {
   aspect-ratio: 1;
   border-radius: 50%;
   background: radial-gradient(
-    circle at 30% 30%,
-    var(--accent-soft),
-    transparent 55%
+    circle at 35% 35%,
+    rgba(111, 208, 140, 0.25),
+  rgba(205, 223, 160, 0.12) 40%,
+    transparent 65%
   );
   border: 1px solid var(--border);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none;
-  opacity: 0.9;
+  opacity: 0.95;
 }
 
 .hero-decoration::after {
@@ -397,14 +420,40 @@ button {
   position: absolute;
   inset: 12%;
   border-radius: 50%;
-  border: 1px dashed var(--border);
-  opacity: 0.5;
+  border: 1px dashed rgba(230, 199, 156, 0.35);
+  opacity: 0.6;
+}
+
+.hero-decoration::before {
+  content: "";
+  position: absolute;
+  inset: -8%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 70% 70%,
+    rgba(123, 158, 168, 0.15),
+    transparent 50%
+  );
 }
 
 /* ===== About ===== */
 .section-about {
   background: var(--bg-elevated);
   border-block: 1px solid var(--border);
+  position: relative;
+}
+
+.section-about::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(205, 223, 160, 0.06) 0%,
+    transparent 50%,
+    rgba(123, 158, 168, 0.06) 100%
+  );
+  pointer-events: none;
 }
 
 .about-grid {
@@ -464,12 +513,12 @@ button {
 
 .project-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(56, 189, 248, 0.35);
+  border-color: rgba(111, 208, 140, 0.45);
   box-shadow: var(--shadow);
 }
 
 html[data-theme="light"] .project-card:hover {
-  border-color: rgba(2, 132, 199, 0.35);
+  border-color: rgba(74, 158, 106, 0.4);
 }
 
 .project-thumb {
@@ -574,7 +623,7 @@ html[data-theme="light"] .project-card:hover {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: var(--accent);
+  background: linear-gradient(135deg, var(--green), var(--teal));
   box-shadow: 0 0 0 3px var(--bg);
 }
 
@@ -609,7 +658,11 @@ html[data-theme="light"] .timeline-item::before {
 /* ===== Footer ===== */
 .site-footer {
   border-top: 1px solid var(--border);
-  background: var(--bg-elevated);
+  background: linear-gradient(
+    180deg,
+    var(--bg-elevated) 0%,
+    color-mix(in srgb, var(--mauve) 18%, var(--bg-elevated)) 100%
+  );
   padding-block: 2.5rem;
 }
 

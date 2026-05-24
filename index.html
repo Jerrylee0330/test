@@ -8,6 +8,12 @@
       content="個人作品集 — 前端開發與 UI 設計"
     />
     <title>你的名字 | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
   </head>
@@ -18,7 +24,10 @@
 
     <header class="site-header">
       <div class="header-inner">
-        <a class="logo" href="#hero" aria-label="回到頁首">Portfolio</a>
+        <a class="logo" href="#hero" aria-label="回到頁首">
+          <span class="logo-mark" aria-hidden="true"></span>
+          <span class="logo-text">Portfolio</span>
+        </a>
 
         <button
           type="button"
@@ -42,30 +51,61 @@
           </ul>
         </nav>
 
-        <button
-          type="button"
-          class="theme-toggle"
-          id="theme-toggle"
-          aria-label="切換淺色或深色主題"
-        ></button>
+        <div class="header-actions">
+          <a class="btn btn-outline btn-sm header-cta" href="#footer">聯絡我</a>
+          <button
+            type="button"
+            class="theme-toggle"
+            id="theme-toggle"
+            aria-label="切換淺色或深色主題"
+          ></button>
+        </div>
       </div>
     </header>
 
     <main id="main">
       <section id="hero" class="hero section">
-        <div class="hero-inner reveal">
-          <p class="eyebrow">Front-end · UI/UX</p>
-          <h1 class="hero-title">你的名字</h1>
-          <p class="hero-slogan">
-            用程式與設計，把複雜變簡單，把想法變成可觸及的體驗。
-          </p>
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="hero-grid container">
+          <div class="hero-inner reveal">
+            <p class="eyebrow">Front-end · UI/UX</p>
+            <h1 class="hero-title">
+              <span class="hero-title-line">你的名字</span>
+            </h1>
+            <p class="hero-slogan">
+              用程式與設計，把複雜變簡單，把想法變成可觸及的體驗。
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#projects">探索作品</a>
+              <a class="btn btn-ghost" href="#footer"
+                >聯絡我 <span aria-hidden="true">→</span></a
+              >
+            </div>
+          </div>
+          <ul class="hero-stats reveal" aria-label="重點摘要">
+            <li>
+              <span class="stat-value">3+</span>
+              <span class="stat-label">精選專案</span>
+            </li>
+            <li>
+              <span class="stat-value">6</span>
+              <span class="stat-label">核心技能</span>
+            </li>
+            <li>
+              <span class="stat-value">100%</span>
+              <span class="stat-label">響應式設計</span>
+            </li>
+          </ul>
         </div>
-        <div class="hero-decoration" aria-hidden="true"></div>
+        <div class="hero-scroll-hint" aria-hidden="true">
+          <span>Scroll</span>
+        </div>
       </section>
 
       <section id="about" class="section section-about">
         <div class="container">
           <header class="section-header reveal">
+            <p class="section-number">01</p>
             <h2>關於我</h2>
             <p class="section-lead">
               簡短介紹你的背景、正在專注的方向，以及你如何看待產品與使用者。
@@ -92,21 +132,25 @@
 
       <section id="projects" class="section section-projects">
         <div class="container">
-          <header class="section-header reveal">
-            <h2>精選作品</h2>
+          <header class="section-header section-header--split reveal">
+            <div class="section-header-main">
+              <p class="section-number">02</p>
+              <h2>精選作品</h2>
+            </div>
             <p class="section-lead">
               三個代表性專案；將下方標題、描述與圖片替換為你的真實作品。
             </p>
           </header>
 
           <div class="projects-grid">
-            <article class="project-card reveal">
+            <article class="project-card project-card--featured reveal">
               <div
                 class="project-thumb"
                 role="img"
                 aria-label="作品一預覽圖佔位"
               ></div>
               <div class="project-body">
+                <p class="project-index">01</p>
                 <h3>響應式品牌官網</h3>
                 <p>
                   以 Grid 與 Flex 打造多斷點版面，兼顧效能與可讀性，
@@ -117,6 +161,7 @@
                   <li>CSS</li>
                   <li>JavaScript</li>
                 </ul>
+                <a class="project-link" href="#">View project →</a>
               </div>
             </article>
 
@@ -127,6 +172,7 @@
                 aria-label="作品二預覽圖佔位"
               ></div>
               <div class="project-body">
+                <p class="project-index">02</p>
                 <h3>互動式儀表板</h3>
                 <p>
                   資料視覺化與篩選互動，採模組化結構方便擴充，
@@ -137,6 +183,7 @@
                   <li>CSS</li>
                   <li>API</li>
                 </ul>
+                <a class="project-link" href="#">View project →</a>
               </div>
             </article>
 
@@ -147,6 +194,7 @@
                 aria-label="作品三預覽圖佔位"
               ></div>
               <div class="project-body">
+                <p class="project-index">03</p>
                 <h3>設計系統元件庫</h3>
                 <p>
                   定義色彩、字級與間距權杖，統一按鈕、卡片與表單樣式，
@@ -157,6 +205,7 @@
                   <li>Design</li>
                   <li>Docs</li>
                 </ul>
+                <a class="project-link" href="#">View project →</a>
               </div>
             </article>
           </div>
@@ -166,6 +215,7 @@
       <section id="skills" class="section section-skills">
         <div class="container">
           <header class="section-header reveal">
+            <p class="section-number">03</p>
             <h2>技能</h2>
             <p class="section-lead">
               我擅長的技術棧與工具；可依你的履歷調整項目與排序。
@@ -185,6 +235,7 @@
       <section id="experience" class="section section-experience">
         <div class="container">
           <header class="section-header reveal">
+            <p class="section-number">04</p>
             <h2>經歷</h2>
             <p class="section-lead">
               比賽、檢定與活動紀錄；請替換為你的真實項目與日期。
